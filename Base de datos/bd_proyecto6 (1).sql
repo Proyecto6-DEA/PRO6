@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-02-2017 a las 16:06:24
+-- Tiempo de generación: 20-02-2017 a las 15:16:58
 -- Versión del servidor: 10.1.10-MariaDB
 -- Versión de PHP: 5.6.19
 
@@ -80,22 +80,8 @@ CREATE TABLE `tbl_pregunta` (
   `preg_id` int(2) NOT NULL,
   `preg_txt` text CHARACTER SET utf16 COLLATE utf16_spanish2_ci NOT NULL,
   `preg_tipo` enum('Presentación Oral','Contenido') CHARACTER SET utf16 COLLATE utf16_spanish2_ci NOT NULL,
-  `preg_categoria` enum('Profesor','Alumno') CHARACTER SET utf16 COLLATE utf16_spanish2_ci NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `tbl_profesor`
---
-
-CREATE TABLE `tbl_profesor` (
-  `pro_id` int(3) NOT NULL,
-  `pro_nombre` varchar(15) CHARACTER SET utf16 COLLATE utf16_spanish2_ci NOT NULL,
-  `pro_apellido` varchar(50) CHARACTER SET utf16 COLLATE utf16_spanish2_ci NOT NULL,
-  `pro_usuario` varchar(15) CHARACTER SET utf16 COLLATE utf16_spanish2_ci NOT NULL,
-  `pro_pass` varchar(15) CHARACTER SET utf16 COLLATE utf16_spanish2_ci NOT NULL,
-  `pro_tipo` enum('admin','profesor','jurado') CHARACTER SET utf16 COLLATE utf16_spanish2_ci NOT NULL
+  `preg_categoria` enum('Profesor','Alumno') CHARACTER SET utf16 COLLATE utf16_spanish2_ci NOT NULL,
+  `preg_estado` enum('activo','inactivo') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'activo'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -108,10 +94,39 @@ CREATE TABLE `tbl_proyecto` (
   `proy_id` int(5) NOT NULL,
   `proy_nom` varchar(100) CHARACTER SET utf16 COLLATE utf16_spanish2_ci NOT NULL,
   `proy_curso` varchar(50) CHARACTER SET utf16 COLLATE utf16_spanish2_ci NOT NULL,
-  `proy_ano` varchar(20) CHARACTER SET utf16 COLLATE utf16_spanish2_ci NOT NULL,
+  `proy_fecha` date NOT NULL,
   `proy_pin` int(4) NOT NULL,
   `proy_estado` enum('abierto','cerrado') CHARACTER SET utf16 COLLATE utf16_spanish2_ci NOT NULL,
-  `proy_nota` int(2) NOT NULL
+  `proy_nota` int(2) NOT NULL,
+  `tri_id` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tbl_tribunal`
+--
+
+CREATE TABLE `tbl_tribunal` (
+  `tri_id` int(11) NOT NULL,
+  `tri_jurado` text CHARACTER SET latin1 NOT NULL,
+  `tri_nombre` varchar(30) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tbl_usuario`
+--
+
+CREATE TABLE `tbl_usuario` (
+  `usu_id` int(3) NOT NULL,
+  `usu_nombre` varchar(15) CHARACTER SET utf16 COLLATE utf16_spanish2_ci NOT NULL,
+  `usu_apellido` varchar(50) CHARACTER SET utf16 COLLATE utf16_spanish2_ci NOT NULL,
+  `usu_usuario` varchar(15) CHARACTER SET utf16 COLLATE utf16_spanish2_ci NOT NULL,
+  `usu_pass` varchar(15) CHARACTER SET utf16 COLLATE utf16_spanish2_ci NOT NULL,
+  `usu_tipo` enum('admin','profesor') CHARACTER SET utf16 COLLATE utf16_spanish2_ci NOT NULL,
+  `tri_id` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -143,16 +158,22 @@ ALTER TABLE `tbl_pregunta`
   ADD PRIMARY KEY (`preg_id`);
 
 --
--- Indices de la tabla `tbl_profesor`
---
-ALTER TABLE `tbl_profesor`
-  ADD PRIMARY KEY (`pro_id`);
-
---
 -- Indices de la tabla `tbl_proyecto`
 --
 ALTER TABLE `tbl_proyecto`
   ADD PRIMARY KEY (`proy_id`);
+
+--
+-- Indices de la tabla `tbl_tribunal`
+--
+ALTER TABLE `tbl_tribunal`
+  ADD PRIMARY KEY (`tri_id`);
+
+--
+-- Indices de la tabla `tbl_usuario`
+--
+ALTER TABLE `tbl_usuario`
+  ADD PRIMARY KEY (`usu_id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -179,15 +200,20 @@ ALTER TABLE `tbl_notaspublico`
 ALTER TABLE `tbl_pregunta`
   MODIFY `preg_id` int(2) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `tbl_profesor`
---
-ALTER TABLE `tbl_profesor`
-  MODIFY `pro_id` int(3) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT de la tabla `tbl_proyecto`
 --
 ALTER TABLE `tbl_proyecto`
   MODIFY `proy_id` int(5) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `tbl_tribunal`
+--
+ALTER TABLE `tbl_tribunal`
+  MODIFY `tri_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `tbl_usuario`
+--
+ALTER TABLE `tbl_usuario`
+  MODIFY `usu_id` int(3) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
