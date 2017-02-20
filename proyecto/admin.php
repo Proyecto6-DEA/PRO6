@@ -42,43 +42,78 @@
     <body>
         
         <div class="page-header ">
+            CONTENIDO DEL HEADER
             
         </div>
 
         <div class="container">
-          <div role="tabpanel" class="row">
-            <ul class="nav nav-tabs nav-justified">
-              <li class="active"><a href="#contAlerta1">Inicio</a></li>
-              <li><a href="#contAlerta2">Perfil</a></li>
-              <li><a href="#contAlerta3">Mensajes</a></li>
-            </ul>
-          
-           
-          <div class="tab-content">
-              <div role="tabpanel" class="tab-pane active" id="contAlerta1" style="height: 600px;">
-                  <div class="col-md-12">
-                      <table id="taulaAlerta1" data-height="600" data-cookie="true" data-height="600" data-cookie-id-table="idgrup" data-copy-w-hidden-btn="true" data-copy-delemeter=", " data-click-to-select="true" data-toolbar="#toolbar" ></table>
-                  </div>
-              </div>
-              <div role="tabpane2" class="tab-pane active" id="contAlerta1" style="height: 600px;">
-                  <div class="col-md-12">
-                      <table id="taulaAlerta1" data-height="600" data-cookie="true" data-height="600" data-cookie-id-table="idgrup" data-copy-w-hidden-btn="true" data-copy-delemeter=", " data-click-to-select="true" data-toolbar="#toolbar" ></table>
-                  </div>
-              </div>
-              <div role="tabpane3" class="tab-pane active" id="contAlerta1" style="height: 600px;">
-                  <div class="col-md-12">
-                      <table id="taulaAlerta1" data-height="600" data-cookie="true" data-height="600" data-cookie-id-table="idgrup" data-copy-w-hidden-btn="true" data-copy-delemeter=", " data-click-to-select="true" data-toolbar="#toolbar" ></table>
-                  </div>
-              </div>
-          </div>
-          </div>
-          <ul class="nav nav-pills nav-justified">
-            <li class="active"><a href="#">Inicio</a></li>
-            <li><a href="#">Perfil</a></li>
-            <li><a href="#">Mensajes</a></li>
-          </ul>
-        </div>
-        <div class="col-md-10 col-md-offset-1">
+          <div class="col-md-12">
+                <div role="tabpanel" class="row">
+                    <ul class="nav nav-tabs">
+                        <li role="presentation" class="active">
+                            <a href="#contAlerta1" aria-controls="profile" role="tab" data-toggle="tab" ><div id="Alerta1"></div>USUARIOS </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#contAlerta2" aria-controls="profile" role="tab" data-toggle="tab"><div id="Alerta2"></div>PROYECTOS</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#contAlerta3" aria-controls="profile" role="tab" data-toggle="tab" ><div id="Alerta3"></div>TRIBUNAL</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#contAlerta4" aria-controls="profile" role="tab" data-toggle="tab" ><div id="Alerta3"></div>PREGUNTAS</a>
+                        </li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="contAlerta1" style="height: 600px;">
+                            <div class="col-md-12">
+                                <div id="toolbar" class="btn-group">
+                                    <button type="button" class="btn btn-primary" role="button" data-toggle="modal" data-target="#inserUsuario">AÑADIR USUARIO</button>
+                                </div>
+                                <table id="tblusuarios" data-height="610" data-cookie="true" data-cookie-id-table="uno"  data-toolbar="#toolbar"></table>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="contAlerta2" style="height:600px; ">
+                            <div class="col-md-12">
+                                <div id="toolbar1" class="btn-group">
+                                    <button type="button" class="btn btn-primary" role="button" data-toggle="modal" data-target="#inserProyecto">AÑADIR PROYECTO</button>
+                                    <button type="button" name="afegirAdmGrups" class="btn btn-primary" role="button" data-toggle="modal" data-target="#insertarTribunal">TRIBUNAL</button>
+                                    <button type="button" class="btn btn-primary" role="button" data-toggle="modal" data-target="#administradorsGrups">BOTON2</button>
+                                </div>
+                                <table id="tblproyectos" data-height="610" data-cookie="true" data-cookie-id-table="uno"  data-toolbar="#toolbar1"></table>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="contAlerta3" style="height: 600px;">
+                            <div class="col-md-12">
+                                <div id="toolbar2" class="btn-group">
+                                    <button type="button" class="btn btn-primary" role="button" data-toggle="modal" data-target="#inserProyecto">AÑADIR TRIBUNAL</button>
+                                    <button type="button" name="afegirAdmGrups" class="btn btn-primary" role="button" data-toggle="modal" data-target="#insertarTribunal">TRIBUNAL</button>
+                                    <button type="button" class="btn btn-primary" role="button" data-toggle="modal" data-target="#administradorsGrups">BOTON2</button>
+                                </div>
+                                <table id="tbltribunal" data-height="610" data-cookie="true" data-cookie-id-table="uno"  data-toolbar="#toolbar2"></table>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="contAlerta4" style="height: 600px;">
+                            <div class="col-md-12">
+                                <div id="toolbar4" class="btn-group">
+                                    <button type="button" class="btn btn-primary" role="button" data-toggle="modal" data-target="#inserProyecto">AÑADIR PREGUNTA</button>
+                                    <button type="button" class="btn btn-primary" role="button" data-toggle="modal" data-target="#administradorsGrups">BOTON2</button>
+                                </div>
+                                <table id="tblpregunta" data-height="610" data-cookie="true" data-cookie-id-table="uno"  data-toolbar="#toolbar4"></table>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div id="loading">
+                    <img id="loading-image" src="img/loader.gif" alt="Carregant dades..." />
+                </div>
+            </div>
+
+
+
+
+     <!--    <div class="col-md-10 col-md-offset-1">
                 <div id="toolbar" class="btn-group">
                     <button type="button" class="btn btn-primary" role="button" data-toggle="modal" data-target="#inserProyecto">INSERTAR PROYECTO</button>
                     <button type="button" name="afegirAdmGrups" class="btn btn-primary" role="button" data-toggle="modal" data-target="#insertarTribunal">TRIBUNAL</button>
@@ -87,24 +122,52 @@
                 <table id="tabla1" data-height="610" data-cookie="true" data-cookie-id-table="uno"  data-toolbar="#toolbar"></table>
 
                 
-        </div>
+        </div> -->
 <!-- TABLA  PROYECTOS -->
-        <script type="text/javascript" src="tablaJs/tbl_Proyectos.js"></script>
+        
+        <script type="text/javascript" src="tablaJs/tbl_usuarios.js"></script>
+        <script type="text/javascript" src="tablaJs/tbl_proyectos.js"></script>
+        <script type="text/javascript" src="tablaJs/tbl_tribunal.js"></script>
+        <script type="text/javascript" src="tablaJs/tbl_pregunta.js"></script>
         
 
 
         <!-- MODAL DIALOG para USUARISGRUPS de ADMINISTRACIÓ DE GRUPS NO ACADEMICS -->
-        <div class="modal fade " id="inserProyecto" tabindex="-1" role="dialog">
-            <div class="modal-dialog modal-lg" style="width: 90% !important;">
+        <div class="modal fade " id="inserUsuario" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" >
                 <div class="modal-content" >
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h4 class="modal-title" id="UsuGrupTitulo">Usuaris del Grup: </h4>
+                        <h4 class="modal-title" id="UsuGrupTitulo">Crear Usuario: </h4>
                     </div>
-                    <div class="modal-body" >
+                    <div class="modal-body">
+                      <form>
                         <div class="row">
-                           FORMULARIO
+                            <div class="form-group col-lg-6">
+                              <label for="ejemplo_email_1">Nombre:</label>
+                              <input type="text" id="per_cp1" class="form-control col-lg-6" name="per_cp1"
+                                     placeholder="Código postal">
+                            </div>
+                            <div class="form-group col-lg-6">
+                              <label for="ejemplo_email_1">Apellidos:</label>
+                              <input type="text" id="per_cp1" class="form-control col-lg-6" name="per_cp1"
+                                     placeholder="Código postal">
+                            </div>
+                            <div class="form-group col-lg-6">
+                              <label for="ejemplo_email_1">Usuario:</label>
+                              <input type="text" id="per_cp1" class="form-control col-lg-6" name="per_cp1"
+                                     placeholder="Código postal">
+                            </div>
+                            <div class="form-group col-lg-6">
+                              <label for="ejemplo_email_1">Contraseña:</label>
+                              <input type="text" id="per_cp1" class="form-control col-lg-6" name="per_cp1"
+                                     placeholder="Código postal">
+                            </div>
+                            <div class="form-group col-lg-12">
+                              <input type="submit" id="btnAfegirUsu" class="btn btn-primary col-lg-12 col-md-12 col-sm-12 col-xs-12" value="Afegir">
+                            </div>
                         </div>
+                      </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">Tanca</button>
