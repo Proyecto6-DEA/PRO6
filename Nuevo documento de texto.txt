@@ -44,3 +44,13 @@ $.ajax({
     };
 
 <form class="form-horizontal" id="formAfaUsuGrups" onsubmit="return funcionAfaUsuGrups()" method="POST">
+
+
+SQL:::::::::::::::::::::::::::::
+
+$insertRegistro = $databaseConnection->prepare("INSERT INTO tbl_registre (adm_grup, grup, usuari, rol, accio) VALUES (:admin, :grup, :usuari, :rol, :accio);");
+                  $insertRegistro->bindParam(':admin', $admin);
+                  $insertRegistro->bindParam(':grup', $codi_grup); 
+                  $insertRegistro->bindParam(':usuari', $user);
+                  $insertRegistro->bindParam(':rol', $rol);
+                  $insertRegistro->bindParam(':accio', $accio);
