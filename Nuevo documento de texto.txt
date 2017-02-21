@@ -42,3 +42,5 @@ $.ajax({
         return false; // Evitar ejecutar el submit del formulario.
                        
     };
+
+<form class="form-horizontal" id="formAfaUsuGrups" onsubmit="return funcionAfaUsuGrups()" method="POST">
