@@ -113,26 +113,18 @@
 
 
 
-     <!--    <div class="col-md-10 col-md-offset-1">
-                <div id="toolbar" class="btn-group">
-                    <button type="button" class="btn btn-primary" role="button" data-toggle="modal" data-target="#inserProyecto">INSERTAR PROYECTO</button>
-                    <button type="button" name="afegirAdmGrups" class="btn btn-primary" role="button" data-toggle="modal" data-target="#insertarTribunal">TRIBUNAL</button>
-                    <button type="button" class="btn btn-primary" role="button" data-toggle="modal" data-target="#administradorsGrups">BOTON2</button>
-                </div>
-                <table id="tabla1" data-height="610" data-cookie="true" data-cookie-id-table="uno"  data-toolbar="#toolbar"></table>
-
-                
-        </div> -->
-<!-- TABLA  PROYECTOS -->
+    <!-- TABLAS JS -->
         
         <script type="text/javascript" src="tablaJs/tbl_usuarios.js"></script>
         <script type="text/javascript" src="tablaJs/tbl_proyectos.js"></script>
         <script type="text/javascript" src="tablaJs/tbl_tribunal.js"></script>
         <script type="text/javascript" src="tablaJs/tbl_pregunta.js"></script>
+
+    <!-- FIN TABLA JS -->
         
 
 
-        <!-- MODAL DIALOG para USUARISGRUPS de ADMINISTRACIÓ DE GRUPS NO ACADEMICS -->
+        <!-- MODAL DIALOG para INSERTAR USUARIOS -->
         <div class="modal fade " id="inserUsuario" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-lg" >
                 <div class="modal-content" >
@@ -165,6 +157,58 @@
                             </div>
                             <div class="form-group col-lg-12">
                               <input type="submit" id="btnAfegirUsu" class="btn btn-primary col-lg-12 col-md-12 col-sm-12 col-xs-12" value="Afegir">
+                            </div>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Tanca</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal --> 
+
+
+        <!-- MODAL DIALOG para INSERTAR PROYECTOS -->
+        <div class="modal fade " id="inserProyecto" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" >
+                <div class="modal-content" >
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title" id="UsuGrupTitulo">Crear Proyecto: </h4>
+                    </div>
+                    <div class="modal-body">
+                      <form>
+                        <div class="row">
+                            <div class="form-group col-lg-8">
+                              <label for="ejemplo_email_1">Título del Proyecto:</label>
+                              <input type="text" id="per_cp1" class="form-control col-lg-6" name="per_cp1"
+                                     placeholder="Código postal">
+                            </div>
+                            <div class="form-group col-lg-4">
+                              <label for="ejemplo_email_1">Curso:</label>
+                              <input type="text" id="per_cp1" class="form-control col-lg-6" name="per_cp1"
+                                     placeholder="Código postal">
+                            </div>
+                            <div class="form-group col-lg-4">
+                              <label for="ejemplo_email_1">Año Curso:</label>
+                              <input type="text" id="per_cp1" class="form-control col-lg-6" name="per_cp1"
+                                     placeholder="Código postal">
+                            </div>
+                            <div class="form-group col-lg-4">
+                              <label for="ejemplo_email_1">Pin Web:</label>
+                              <input type="text" id="per_cp1" class="form-control col-lg-6" name="per_cp1"
+                                     placeholder="Código postal">
+                            </div>
+                            <div class="form-group col-lg-4">
+                              <label for="ejemplo_email_1">Estado:</label>
+                                <select class="form-control">
+                                  <option value="abierto">Abierto</option>
+                                  <option value="cerrado">Cerrado</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-lg-12">
+                              <input type="submit" id="btnAfegirUsu" class="btn btn-primary col-lg-12 col-md-12 col-sm-12 col-xs-12" value="AÑADIR PROYECTO">
                             </div>
                         </div>
                       </form>
