@@ -1,0 +1,44 @@
+$.ajax({
+                    type: "POST",
+                    url: url,
+                    data: $("#formAfaUsuGrups").serialize(), // Adjuntar los campos del formulario enviado.
+                    success: function(data){
+                                var resTotal = data;
+                                var res = resTotal.split(";");
+                                var error ="";
+                                var afegir ="";
+                                for(var i=0; i<res.length; i++){
+                                        if(res[i].indexOf('existeix')!=-1){
+                                                error += res[i]+"<br/>";
+                                        }else if(res[i].indexOf('afegit')!=-1){
+                                                afegir += res[i]+"<br/>";
+                                        }
+                                }
+                                if(error!=""){
+                                    $("#alertUsuarisFalse").addClass("alert alert-danger col-lg-12 col-md-12 col-sm-12 col-xs-12")
+                                    $("#alertUsuarisFalse").fadeIn();
+                                    $("#alertUsuarisFalse").html(error);
+                                    setTimeout(function() {
+                                        $("#alertUsuarisFalse").css('display','none');
+                                        $('#taulaUsuaris').bootstrapTable('refresh');
+                                    },3000);
+                                }
+                                if (afegir!=""){
+                                    $("#alertUsuarisTrue").addClass("alert alert-success col-lg-12 col-md-12 col-sm-12 col-xs-12")
+                                    $("#alertUsuarisTrue").fadeIn();
+                                    $("#alertUsuarisTrue").html(afegir);
+                                    setTimeout(function() {
+                                        $("#alertUsuarisTrue").css('display', 'none');
+                                        $("#alertUsuarisTrue").bootstrapTable('refresh');
+                                        },3000);
+                                }   
+                                setTimeout(function () {
+                                    $('#taulaUsuaris').bootstrapTable('refresh');
+                                }, 150);
+                                    $('#taulaUsuaris').bootstrapTable('refresh');
+                            }
+            });
+                                    
+        return false; // Evitar ejecutar el submit del formulario.
+                       
+    };
