@@ -53,6 +53,123 @@
                 </div>
             </div>
         </div>
+
+
+
+
         <script type="text/javascript" src="tablaJs/tbl_tribunal_gestion.js"></script>
+
+
+
+
+
+        <!-- MODAL DIALOG para USUARISGRUPS de ADMINISTRACIÓ DE GRUPS NO ACADEMICS -->
+        <div class="modal fade " id="verPreguntas" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" style="width: 90% !important;">
+                <div class="modal-content" >
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title" id="UsuGrupTitulo">PREGUNTAS: </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row" id="preguntas">
+                                <div class="col-lg-8">
+                                    
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="col-lg-4">
+                                        ALUMNO 1 APELLIDO APELLIDO
+                                    </div>
+                                    <div class="col-lg-4">
+                                        ALFREDO FERNANDEZ SUAREZ
+                                    </div>
+                                    <div class="col-lg-4">
+                                        ALUMNO 3 APELLIDO APELLIDO
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="row">
+                           <div class="form-group col-lg-12">
+                              <label for="ejemplo_email_1">Título del Proyecto:</label>
+                              <div class="row">
+                                    <div class="col-md-8">Pregunta 1</div>
+                                    <div class="col-md-4">
+                                        <div class="col-md-4"><input type="number" id="per_cp1" class="form-control" name="per_cp1" placeholder="Código postal"></div>
+
+                                        <div class="col-md-4"><input type="number" id="per_cp1" class="form-control" name="per_cp1" placeholder="Código postal"></div>
+
+                                        <div class="col-md-4"><input type="number" id="per_cp1" class="form-control" name="per_cp1" placeholder="Código postal"></div>
+                                    </div>
+                              </div>
+                              <hr>
+                              <div class="row">
+                                    <div class="col-md-8">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias</div>
+                                    <div class="col-md-4">
+                                        <div class="col-md-4"><input type="number" id="per_cp1" class="form-control" name="per_cp1" placeholder="Código postal"></div>
+
+                                        <div class="col-md-4"><input type="number" id="per_cp1" class="form-control" name="per_cp1" placeholder="Código postal"></div>
+
+                                        <div class="col-md-4"><input type="number" id="per_cp1" class="form-control col-lg-6" name="per_cp1" placeholder="Código postal"></div>
+                                    </div>
+                              </div>
+                              <hr>
+                              <div class="row">
+
+                                    <div class="col-md-8">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.</div>
+                                    <div class="col-md-4">
+                                        <div class="col-md-4"><input type="number" id="per_cp1" class="form-control" name="per_cp1" placeholder="Código postal"></div>
+                                        
+                                        <div class="col-md-4"><input type="number" id="per_cp1" class="form-control" name="per_cp1" placeholder="Código postal"></div>
+
+                                        <div class="col-md-4"><input type="number" id="per_cp1" class="form-control col-lg-6" name="per_cp1" placeholder="Código postal"></div>
+                                    </div>
+
+                              </div>
+                              <hr>
+                              <div class="row">
+                                    <div class="col-md-8">Pregunta 1</div>
+                                    <div class="col-md-4">
+                                        <div class="col-md-4"><input type="number" id="per_cp1" class="form-control" name="per_cp1" placeholder="Código postal"></div>
+                                        
+                                        <div class="col-md-4"><input type="number" id="per_cp1" class="form-control" name="per_cp1" placeholder="Código postal"></div>
+
+                                        <div class="col-md-4"><input type="number" id="per_cp1" class="form-control col-lg-6" name="per_cp1" placeholder="Código postal"></div>
+                                    </div>
+
+                              </div>
+                              <hr>
+                              <div class="row">
+
+                                    <div class="col-md-8">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.</div>
+                                    <div class="col-md-4">
+                                        <div class="col-md-4"><input type="number" id="per_cp1" class="form-control" name="per_cp1" placeholder="Código postal"></div>
+                                        
+                                        <div class="col-md-4"><input type="number" id="per_cp1" class="form-control" name="per_cp1" placeholder="Código postal"></div>
+
+                                        <div class="col-md-4"><input type="number" id="per_cp1" class="form-control col-lg-6" name="per_cp1" placeholder="Código postal"></div>
+                                    </div>
+
+                              </div>
+                              <hr>
+                              <div class="row">
+                                    <div class="col-md-8">Pregunta 1</div>
+                                    <div class="col-md-4">
+                                        <div class="col-md-4"><input type="number" id="per_cp1" class="form-control" name="per_cp1" placeholder="Código postal"></div>
+                                        
+                                        <div class="col-md-4"><input type="number" id="per_cp1" class="form-control" name="per_cp1" placeholder="Código postal"></div>
+
+                                        <div class="col-md-4"><input type="number" id="per_cp1" class="form-control col-lg-6" name="per_cp1" placeholder="Código postal"></div>
+                                    </div>
+
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Tanca</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal --> 
     </body>
 </html>

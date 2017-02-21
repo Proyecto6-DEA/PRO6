@@ -50,24 +50,27 @@ $('#tblTribunalGestion').bootstrapTable({
                         }]
                     });
                     window.actionEvents = {
-                            'click .verG': function (e, value, row, index) {
+                            'click .votar': function (e, value, row, index) {
+
+                                    var llamada = rellenar();
+                                        alert("hola");
                                         //console.log(value, row, index);
-                                        $("#verGrup").attr('id_grup',row.id_grup);
-                                        $("#verGrup").attr('codi_grup',row.codi_grup);
-                                        var valueId =row.id_grup;
-                                        var valueGrup =row.codi_grup;
-                                            document.getElementById("campoOcultoId").value = valueId;
-                                            document.getElementById("campoOcultoGrup").value = valueGrup;
-                                            document.getElementById("formAfaUsuGrups").reset();
-                                            $("#UsuGrupTitulo").html("Usuaris del Grup: "+row.codi_grup);
-                                            $('#taulaUsuaris').bootstrapTable('resetSearch');
-                                            // $('#taulaUsuaris').bootstrapTable('refresh');
-                                            // $('#taulaAdmDeGrups').bootstrapTable('refresh');
-                                        setTimeout(function () {
+                                        // $("#verGrup").attr('id_grup',row.id_grup);
+                                        // $("#verGrup").attr('codi_grup',row.codi_grup);
+                                        // var valueId =row.id_grup;
+                                        // var valueGrup =row.codi_grup;
+                                        //     document.getElementById("campoOcultoId").value = valueId;
+                                        //     document.getElementById("campoOcultoGrup").value = valueGrup;
+                                        //     document.getElementById("formAfaUsuGrups").reset();
+                                        //     $("#UsuGrupTitulo").html("Usuaris del Grup: "+row.codi_grup);
+                                        //     $('#taulaUsuaris').bootstrapTable('resetSearch');
+                                        //     // $('#taulaUsuaris').bootstrapTable('refresh');
+                                        //     // $('#taulaAdmDeGrups').bootstrapTable('refresh');
+                                        // setTimeout(function () {
                                                 
-                                                $('#taulaUsuaris').bootstrapTable('refresh');
-                                                $('#taulaAdmDeGrups').bootstrapTable('refresh');
-                                        }, 150);
+                                        //         $('#taulaUsuaris').bootstrapTable('refresh');
+                                        //         $('#taulaAdmDeGrups').bootstrapTable('refresh');
+                                        // }, 150);
                                         // $('#taulaUsuaris').bootstrapTable('refresh');
                                         // $('#taulaAdmDeGrups').bootstrapTable('refresh');
                             },
@@ -95,7 +98,7 @@ $('#tblTribunalGestion').bootstrapTable({
 
                     function actionFormatter(value, row, index) {
                     return [
-                            '<a class="verG col-md-1 col-md-offset-2" href="javascript:void(0)" title="Votar" data-toggle="modal" data-target="#verGrup">',
+                            '<a class="votar col-md-1 col-md-offset-2" href="javascript:void(0)" title="Votar" data-toggle="modal" data-target="#verPreguntas">',
                                 '<i class="glyphicon glyphicon-pencil"></i>',
                             '</a>',
                             '<a class="editG col-md-1 col-md-offset-1" href="javascript:void(0)" title="ABRIR PROYECTO" data-toggle="modal" data-target="#administrarGrup">',
@@ -106,6 +109,24 @@ $('#tblTribunalGestion').bootstrapTable({
                             '</a>'
                     ].join('');
             }
+
+
+function rellenar(){
+        alert("hola");
+
+        $.ajax({
+                    url: "../select_preguntas.proc.php",
+                    data: JSON.stringify(),
+                    dataType: "json",
+                    method: "post", 
+                    success: function(data){
+                                $('preguntas').append(data);
+                            }
+            });
+                                    
+        //return false; // Evitar ejecutar el submit del formulario.
+                       
+    };
 
 
 
