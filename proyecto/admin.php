@@ -1,9 +1,23 @@
 <?php
 
+include_once "includes/conexion_bd.php";
+
+$selectTribunalbox = $databaseConnection->prepare('SELECT * FROM tbl_tribunal ORDER BY `tbl_tribunal`.`tri_id` ASC');
+                
+                                            
+                                            $selectTribunalbox->execute();  
 
 
 
-  ?>
+                        $rows = $selectTribunalbox->fetchAll(PDO::FETCH_ASSOC);
+                        
+                        //echo json_encode($rows);
+
+?>
+
+
+
+  
 
  
 <!DOCTYPE html>
@@ -62,6 +76,9 @@
                         <li role="presentation">
                             <a href="#contAlerta4" aria-controls="profile" role="tab" data-toggle="tab" ><div id="Alerta3"></div>PREGUNTES</a>
                         </li>
+                        <li role="presentation">
+                            <a href="#contAlerta5" aria-controls="profile" role="tab" data-toggle="tab" ><div id="Alerta3"></div>ALUMNES</a>
+                        </li>
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content">
@@ -93,11 +110,12 @@
                         <div role="tabpanel" class="tab-pane" id="contAlerta4" style="height: 600px;">
                             <div class="col-md-12">
                                 <div id="toolbar4" class="btn-group">
-                                    <button type="button" class="btn btn-primary" role="button" data-toggle="modal" data-target="#inserProyecto">AFEGIR PREGUNTA</button>
+                                    <button type="button" class="btn btn-primary" role="button" data-toggle="modal" data-target="#inserPregunta">AFEGIR PREGUNTA</button>
                                 </div>
                                 <table id="tblpregunta" data-height="610" data-cookie="true" data-cookie-id-table="uno"  data-toolbar="#toolbar4"></table>
                             </div>
                         </div>
+                        
                         
                     </div>
                 </div>
@@ -115,6 +133,7 @@
         <script type="text/javascript" src="tablaJs/tbl_proyectos.js"></script>
         <script type="text/javascript" src="tablaJs/tbl_tribunal.js"></script>
         <script type="text/javascript" src="tablaJs/tbl_pregunta.js"></script>
+        <script type="text/javascript" src="tablaJs/tbl_alumnos.js"></script>
 
     <!-- FIN TABLA JS -->
         
@@ -139,7 +158,7 @@
                             <div class="form-group col-lg-6">
                               <label for="ejemplo_email_1">Cognom:</label>
                               <input type="text" id="per_cp1" class="form-control col-lg-6" name="apellido"
-                                     placeholder="Cognom">
+                                     placeholder="Cognom" required>
                             </div>
                             <div class="form-group col-lg-6">
                               <label for="ejemplo_email_1">Usuari:</label>
@@ -150,6 +169,17 @@
                               <label for="ejemplo_email_1">Contrasenya:</label>
                               <input type="text" id="per_cp1" class="form-control col-lg-6" name="pass"
                                      placeholder="Contrasenya">
+                            </div>
+
+                           <div class="form-group col-lg-6">
+                              <label for="ejemplo_email_1">Tribunal:</label>
+                              <select class="form-control" name="tribunal">
+                                    <?php
+                                        foreach ($rows as $key) {
+                                            echo "<option value=" . $key["tri_id"] . ">" . $key["tri_nombre"] . "</option>" ;
+                                        }
+                                    ?>
+                              </select>
                             </div>
                             <div class="form-group col-lg-12">
                               <input type="submit" id="btnAfegirUsu" class="btn btn-primary col-lg-12 col-md-12 col-sm-12 col-xs-12" value="Afegir">
@@ -202,7 +232,18 @@
                                   <option value="obert">Obert</option>
                                   <option value="tancat">Tancat</option>
                                 </select>
+                            <div class="form-group col-lg-8">
+                              <label for="ejemplo_email_1">Tribunal:</label>
+                              <select class="form-control" name="tribunal">
+                                    <?php
+                                        foreach ($rows as $key) {
+                                            echo "<option value=" . $key["tri_id"] . ">" . $key["tri_nombre"] . "</option>" ;
+                                        }
+                                    ?>
+                              </select>
                             </div>
+                            </div>
+
                             <div class="form-group col-lg-12">
                               <input type="submit" id="btnAfegirUsu" class="btn btn-primary col-lg-12 col-md-12 col-sm-12 col-xs-12" value="AFEGIR PROJECTE">
                             </div>
@@ -217,17 +258,31 @@
         </div><!-- /.modal --> 
 
         <!-- MODAL DIALOG para USUARISGRUPS de ADMINISTRACIÓ DE GRUPS NO ACADEMICS -->
-        <div class="modal fade " id="insertarTribunal" tabindex="-1" role="dialog">
-            <div class="modal-dialog modal-lg" style="width: 90% !important;">
+        <div class="modal fade " id="inserTribunal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" >
                 <div class="modal-content" >
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h4 class="modal-title" id="UsuGrupTitulo">Usuaris del Grup: </h4>
+                        <h4 class="modal-title" id="UsuGrupTitulo">Crear Tribunal: </h4>
                     </div>
-                    <div class="modal-body" >
+                    <div class="modal-body">
+                      <form class="form-horizontal" id="formtribunal" onsubmit="return addtribunal()" method="POST">
                         <div class="row">
-                           TRIBUNAL
+                            <div class="form-group col-lg-8">
+                              <label for="ejemplo_email_1">Membres del Tribunal:</label>
+                              <input type="text" id="per_cp1" class="form-control col-lg-6" name="jurado"
+                                     placeholder="Miembros">
+                            </div>
+                            <div class="form-group col-lg-4">
+                              <label for="ejemplo_email_1">Nom del Tribunal:</label>
+                              <input type="text" id="per_cp1" class="form-control col-lg-6" name="nombre"
+                                     placeholder="Nombre">
+                            </div>
+                            <div class="form-group col-lg-12">
+                              <input type="submit" id="btnAfegirUsu" class="btn btn-primary col-lg-12 col-md-12 col-sm-12 col-xs-12" value="AFEGIR TRIBUNAL">
+                            </div>
                         </div>
+                      </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">Tanca</button>
@@ -235,7 +290,50 @@
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal --> 
-    
+
+
+        <div class="modal fade " id="inserPregunta" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" >
+                <div class="modal-content" >
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title" id="UsuGrupTitulo">Crear Pregunta: </h4>
+                    </div>
+                    <div class="modal-body">
+                      <form class="form-horizontal" id="formpregunta" onsubmit="return addpregunta()" method="POST">
+                        <div class="row">
+                            <div class="form-group col-lg-8">
+                              <label for="ejemplo_email_1"> Pregunta:</label>
+                              <input type="text" id="per_cp1" class="form-control col-lg-6" name="txt"
+                                     placeholder="Pregunta">
+                            </div>
+                            <div class="form-group col-lg-4">
+                              <label for="ejemplo_email_1">Tipus:</label>
+                                <select class="form-control" name="tipo">
+                                  <option value="Presentació Oral">Presentació Oral</option>
+                                  <option value="Contingut">Contingut</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-lg-4">
+                              <label for="ejemplo_email_1">Categoria:</label>
+                                <select class="form-control" name="categoria">
+                                  <option value="Professor">Professor</option>
+                                  <option value="Alumne">Alumne</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-lg-12">
+                              <input type="submit" id="btnAfegirUsu" class="btn btn-primary col-lg-12 col-md-12 col-sm-12 col-xs-12" value="AFEGIR PREGUNTA">
+                            </div>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Tanca</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal --> 
+
      <script>
         
         function addusuario(){
@@ -267,12 +365,27 @@
      
     }
 
-     function addproyecto(){
+     function addtribunal(){
 
          $.ajax({
                     type: "POST",
-                    url: "insert_proyecto.proc.php",
-                    data: $("#formproyecto").serialize(), // Adjuntar los campos del formulario enviado.
+                    url: "insert_tribunal.proc.php",
+                    data: $("#formtribunal").serialize(), // Adjuntar los campos del formulario enviado.
+                    success: function(data){
+
+                                
+            }
+        });
+                                    
+     
+    }
+
+         function addpregunta(){
+
+         $.ajax({
+                    type: "POST",
+                    url: "insert_pregunta.proc.php",
+                    data: $("#formpregunta").serialize(), // Adjuntar los campos del formulario enviado.
                     success: function(data){
 
                                 

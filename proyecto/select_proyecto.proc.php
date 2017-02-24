@@ -2,16 +2,17 @@
 
 include_once "includes/conexion_bd.php";
 
-$selectUsuario = $databaseConnection->prepare('SELECT * FROM tbl_proyecto');
+$selectProyecto = $databaseConnection->prepare('SELECT * FROM tbl_proyecto, tbl_tribunal WHERE tbl_proyecto.tri_id=tbl_tribunal.tri_id');
  				
  											
- 											$selectUsuario->execute();	
+ 											$selectProyecto->execute();	
 
 
 
- 						$rows = $selectUsuario->fetchAll(PDO::FETCH_ASSOC);
+ 						$rows = $selectProyecto->fetchAll(PDO::FETCH_ASSOC);
 						
 						echo json_encode($rows);
+
 
 ?>
 
