@@ -3,8 +3,6 @@
     $acentos = mysqli_query($conexion, "SET NAMES 'utf8'");
 
     extract($_REQUEST);
-
-    echo $proy_pin;
 ?>
 <!DOCTYPE html>
 <html>
@@ -106,6 +104,17 @@
     z-index: 1000;
 }
     </style>
+
+    <script type="text/javascript">
+    
+function llamardiv(){
+
+   $(".nomape").css("display","block");
+
+}
+
+
+</script>
 </head>
 
 <body>
@@ -130,14 +139,14 @@ echo "</header>";
   
 
 
-    $sql = "SELECT * FROM tbl_pregunta WHERE pre_tipo='Presentación Oral'";
+    $sql = "SELECT * FROM tbl_pregunta WHERE preg_tipo='Presentación Oral'";
     $preuntas = mysqli_query($conexion, $sql);
     if (mysqli_num_rows($preuntas)>0){
     while ($preg=mysqli_fetch_array($preuntas)) {
 
-        $tipo = $preg[pre_tipo];
-        $txt = $preg[pre_txt];
-        $id = $preg[pre_id];
+        $tipo = $preg[preg_tipo];
+        $txt = $preg[preg_txt];
+        $id = $preg[preg_id];
         $aid = $id + 1 ;
 
 
@@ -159,12 +168,12 @@ echo "<div style='width:100%; height: 7%;border-bottom:  2px solid #ffcc00;backg
      echo "<div style='width:100%; height: 10%;'>";
         echo "<div class='centrar'>";    
             echo "<div class='col-sm-offset-11 col-sm-1 col-xs-offset-9 col-xs-3'>";
-            if ($id == 3) {
-                echo "<form id='form1' method='get' action='preguntas_proy.php'>";
-                echo "<a href='preguntas_proy.php'><img src='img/siguiente.png'></a>";
-            }else{
-                echo "<a href='#$aid'><img src='img/siguiente.png'></a>";
-            }
+                if ($id == 3) {
+            //     echo "<form id='form1' method='get' action='preguntas_alu1.php'>";
+                    echo "<a href='#4'><img src='img/siguiente.png'></a>";
+                 }else{
+                     echo "<a href='#$aid'><img src='img/siguiente.png'></a>";
+                 }
             echo "</div>";
         echo "</div>";
     echo "</div>";  
@@ -182,7 +191,7 @@ echo "<div style='width:100%; height: 7%;border-bottom:  2px solid #ffcc00;backg
         echo "<div class='centrar'>";
             echo "<div class='container'>";
                 echo "<table width='100%''>";
-                     
+                    echo "<form id='form1' method='get' action='preguntas_alu1.php'>";
 
 
                         $sql_Alu = "SELECT * FROM tbl_alumno WHERE proy_id = $proyid";
@@ -198,28 +207,30 @@ echo "<div style='width:100%; height: 7%;border-bottom:  2px solid #ffcc00;backg
                                 echo "<td width='40%'>";
                                 echo $nomalu." ".$apealu;
                                 echo "</td>";
-                                echo"<td>";
+                                
 
+                            echo"<td>";
                                 echo "<p class='clasificacion'>";
 
 $z = 5;
+
 for ($i=1; $i < 6; $i++) {
             $numradio = $idalu."".$id."".$i;
-         echo "<input id='radio$numradio' type='radio' name='estrellas$numradio' value='$z'>";
+         echo "<input id='radio$numradio' type='radio' name='estrellas_".$id."_".$idalu."' value='$z'>";
          echo "<label for='radio$numradio'><img src='img/star.png' width='40'></label>";
+         echo "<input type='hidden' name='alu' value='$idalu'>";
          $z=$z-1;
 
 }
-                                echo "<input type='hidden' name='proy_pin' value='$proy_pin'>";
+
+                              echo "<input type='hidden' name='proy_id' value='$proyid'>";  
                               echo "</p>";
                               echo "</td>";
                               echo "</tr>";
                             
-
-
-                            }
+}
                         }
-                    echo "</form>";                          
+                        
                 echo "</table>";
             echo "</div>"; 
          echo "</div>";
@@ -228,8 +239,118 @@ for ($i=1; $i < 6; $i++) {
 
     }
 }
-    ?>
 
+echo "<a name='4' id='a'></a>";
+
+    echo "<div style='height:12%'>";
+echo "</div>";
+    
+
+
+
+echo "<div style='width:100%; height: 7%;border-bottom:  2px solid #ffcc00;background-color:white'>";
+        echo "<div class='centrar'>";
+            echo "<span >Continguts</span>";
+            echo "<br>";
+        echo "</div>";
+    echo "</div>";
+
+
+
+    $sql = "SELECT * FROM tbl_pregunta WHERE preg_tipo='Contenido'";
+    $preuntas = mysqli_query($conexion, $sql);
+    if (mysqli_num_rows($preuntas)>0){
+    while ($preg=mysqli_fetch_array($preuntas)) {
+
+        $tipo = $preg[preg_tipo];
+        $txt = $preg[preg_txt];
+        $id = $preg[preg_id];
+        $aid = $id + 1 ;
+ 
+    echo "<div style='width:100%; height: 20%;'>";     
+    echo "<div style='width:100%; height: 50%;'>";
+        echo "<div class='centrar' >";
+            echo "<div class='container'>";
+                echo "<span style='font-size: 15px'><b>$txt</b></span>";
+            echo "</div>";
+        echo "</div>";
+    echo "</div>";
+
+    echo "<div style='width:100%; height: 50%; display: block;'>";
+        echo "<div class='centrar'>";
+            echo "<div class='container'>";
+                echo "<table width='100%''>";
+                     
+
+                               
+                                echo "<tr>";
+                               
+                                echo"<td>";
+
+                                echo "<p class='clasificacion'>";
+
+$z = 5;
+
+for ($i=1; $i < 6; $i++) {
+            $numradio = $id."".$i;
+         echo "<input id='radio$numradio' type='radio' name='estrellas_$id' value='$z'>";
+         echo "<label for='radio$numradio'><img src='img/star.png' width='40'></label>";
+         $z=$z-1;
+
+}
+
+                            
+                              echo "</p>";
+                              echo "</td>";
+                              echo "</tr>";
+                                             
+                echo "</table>";
+            echo "</div>"; 
+         echo "</div>";
+     echo "</div>";  
+     echo "</div>";
+
+    }
+}
+
+echo "<div style='height:20%'>";
+echo "<div class='centrar'>";
+echo "<a href='#nomyape' onclick='llamardiv();'><img src='img/btnguardar.png'></a>";
+echo "</div>";
+echo "</div>";
+
+
+echo "<div class='nomape' style='display:none; width:100%; height:80%;'>";
+echo "<a name='nomyape' id='a'></a> ";
+
+?>
+<div style="height: 23%;">
+<div class="centrar">
+<p style="font-size: 20px;">Moltes Gràcies!!</p>
+
+<p><input type="text" name="nompub" placeholder="Nom i cognom" style=" font-size: 20px; text-align: center; border-color: black; cursor: text; color: black; width: 250px;"/></p>
+<p><input type="text" name="nomcur" placeholder="Curs" style=" font-size: 20px; text-align: center; border-color: black; cursor: text; color: black; width: 250px;"/></p>     
+</div>
+</div>
+
+<?php
+
+echo "<div style='height:7%'>";
+echo "<div class='centrar'>";
+echo "<button style='background-color:white;border:none'><img src='img/btnguardar.png'></button>";
+echo "</form>";
+echo "</div>";   
+echo "</div>";
+
+    ?>
+<br><br>
+<div style="height: 70%;">
+<div class="centrar">
+        <img src="img/hecho.png">
+</div>
+</div>
+
+</div>
 </body>
 </html>
 <?php }}?>

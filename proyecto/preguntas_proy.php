@@ -109,7 +109,7 @@
 
 <body>
 <?php 
-
+echo $proy_pin;
 echo "hola"; 
 ?>
 
