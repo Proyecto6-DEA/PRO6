@@ -1,6 +1,6 @@
-$('#tbltribunal').bootstrapTable({
+$('#tblpregunta').bootstrapTable({
                         method: 'get',
-                        url: 'select_tribunal.proc.php',
+                        url: 'select_usuario.proc.php',
                         cache: false,
                         striped: true,
                         pagination: false,
@@ -12,16 +12,23 @@ $('#tbltribunal').bootstrapTable({
                         height: 450,
                         clickToSelect: false,
                         columns: [{
-                            field: 'tri_nombre',
-                            title: 'NOMBRE DEL JURADO',
+                            field: 'usu_nombre',
+                            title: 'PREGUNTAS',
+                            align: '',
+                            valign: 'middle',
+                            sortable: true,
+                            visible: true,
+                        },{
+                            field: 'usu_apellido',
+                            title: 'TIPO',
                             align: 'center',
                             valign: 'middle',
                             sortable: true,
                             visible: true,
                         },{
-                            field: 'tri_jurado',
-                            title: 'MIEMBROS DEL JURADO',
-                            align: 'center',
+                            field: 'usu_usuario',
+                            title: 'NICKNAME',
+                            align: '',
                             valign: 'middle',
                             sortable: true,
                             visible: true,

@@ -1,6 +1,12 @@
-$('#tblusuarios').bootstrapTable({
+$('#tblTribunalGestion').on('dbl-click-row.bs.table', function (e, row, $element) {
+    var id= row.proy_id;
+    $('#verIntegrantes').modal('show');
+    $('#tblSeleccionarAlumnos').bootstrapTable({
                         method: 'get',
-                        url: 'select_usuario.proc.php',
+                        url: 'select_alumnos.proc.php',
+                        queryParams: function (p) {
+                            return { id: id };
+                        },
                         cache: false,
                         striped: true,
                         pagination: false,
@@ -9,43 +15,39 @@ $('#tblusuarios').bootstrapTable({
                         showRefresh: true,
                         showToggle: true,
                         minimumCountColumns: 4,
-                        height: 450,
+                        height: 250,
                         clickToSelect: false,
-                        columns: [{
-                            field: 'usu_nombre',
-                            title: 'NOM',
+                        columns: 
+                        [{
+                            field: 'alu_nom',
+                            title: 'NOMBRE',
+                            align: '',
+                            valign: 'middle',
+                            sortable: true,
+                            visible: true,
+                        },{
+                            field: 'alu_apellido',
+                            title: 'APELLIDOS',
                             align: 'center',
                             valign: 'middle',
                             sortable: true,
                             visible: true,
                         },{
-                            field: 'usu_apellido',
-                            title: 'COGNOM',
-                            align: 'center',
+                            field: 'alu_nfpublico',
+                            title: 'NOTA PUBLICO',
+                            align: '',
                             valign: 'middle',
                             sortable: true,
                             visible: true,
                         },{
-                            field: 'usu_usuario',
-                            title: 'NICKNAME',
-                            align: 'center',
-                            valign: 'middle',
-                            sortable: true,
-                            visible: true,
-                        },{
-                            field: 'usu_pass',
-                            title: 'CONTRASENYA',
-                            align: 'center',
-                            valign: 'middle',
-                            sortable: true,
-                            visible: true,
-                        },{
-                        field: 'tri_nombre',
-                            title: 'TRIBUNAL',
-                            align: 'center',
+                            field: 'alu_nftribunal',
+                            title: 'NOTA TRIBUNAL',
+                            align: '',
                             valign: 'middle',
                             sortable: true,
                             visible: true,
                         }]
                     });
-                   
+
+
+});
