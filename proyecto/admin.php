@@ -55,9 +55,14 @@ $selectTribunalbox = $databaseConnection->prepare('SELECT * FROM tbl_tribunal OR
     </head>
     <body>
         
-        <div class="page-header ">
-            CONTENIDO DEL HEADER
-            
+        
+        <div class="page-header" style="margin: 10px 0 20px; overflow: hidden; border-bottom: 5px solid #4394d0;box-sizing: border-box;">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ">
+                <img id="img-logoJE" src="img/logo_JE.jpg" alt="Logotip Jesuïtes Educació">
+            </div>
+            <div class="text-center col-md-6 col-sm-12 col-xs-12" style="vertical-align:top;">
+                <h1> <font face="Helvetica" COLOR="#0079BA">Administració</font></h1>
+            </div>
         </div>
 
         <div class="container">
@@ -74,10 +79,10 @@ $selectTribunalbox = $databaseConnection->prepare('SELECT * FROM tbl_tribunal OR
                             <a href="#contAlerta3" aria-controls="profile" role="tab" data-toggle="tab" ><div id="Alerta3"></div>TRIBUNAL</a>
                         </li>
                         <li role="presentation">
-                            <a href="#contAlerta4" aria-controls="profile" role="tab" data-toggle="tab" ><div id="Alerta3"></div>PREGUNTES</a>
+                            <a href="#contAlerta4" aria-controls="profile" role="tab" data-toggle="tab" ><div id="Alerta4"></div>PREGUNTES</a>
                         </li>
                         <li role="presentation">
-                            <a href="#contAlerta5" aria-controls="profile" role="tab" data-toggle="tab" ><div id="Alerta3"></div>ALUMNES</a>
+                            <a href="#contAlerta5" aria-controls="profile" role="tab" data-toggle="tab" ><div id="Alerta5"></div>ALUMNES</a>
                         </li>
                     </ul>
                     <!-- Tab panes -->
@@ -93,7 +98,7 @@ $selectTribunalbox = $databaseConnection->prepare('SELECT * FROM tbl_tribunal OR
                         <div role="tabpanel" class="tab-pane" id="contAlerta2" style="height:600px; ">
                             <div class="col-md-12">
                                 <div id="toolbar1" class="btn-group">
-                                    <button type="button" class="btn btn-primary" role="button" data-toggle="modal" data-target="#inserProyecto">AFEGIR PROYECTE</button>
+                                    <button type="button" class="btn btn-primary" role="button" data-toggle="modal" data-target="#inserProyecto">AFEGIR ALUMNE I PROJECTE</button>
                                 </div>
                                 <table id="tblproyectos" data-height="610" data-cookie="true" data-cookie-id-table="uno"  data-toolbar="#toolbar1"></table>
                             </div>
@@ -109,16 +114,25 @@ $selectTribunalbox = $databaseConnection->prepare('SELECT * FROM tbl_tribunal OR
                         </div>
                         <div role="tabpanel" class="tab-pane" id="contAlerta4" style="height: 600px;">
                             <div class="col-md-12">
-                                <div id="toolbar4" class="btn-group">
+                                <div id="toolbar3" class="btn-group">
                                     <button type="button" class="btn btn-primary" role="button" data-toggle="modal" data-target="#inserPregunta">AFEGIR PREGUNTA</button>
                                 </div>
-                                <table id="tblpregunta" data-height="610" data-cookie="true" data-cookie-id-table="uno"  data-toolbar="#toolbar4"></table>
+                                <table id="tblpregunta" data-height="610" data-cookie="true" data-cookie-id-table="uno"  data-toolbar="#toolbar3"></table>
                             </div>
                         </div>
-                        
-                        
+                        <div role="tabpanel" class="tab-pane" id="contAlerta5" style="height: 600px;">
+                            <div class="col-md-12">
+                                <div id="toolbar4" class="btn-group">
+                                    <button type="button" class="btn btn-primary" role="button" data-toggle="modal" data-target="#inserProyecto">AFEGIR ALUMNE I PROJECTE</button>
+                                </div>
+                                <table id="tblalumnos" data-height="610" data-cookie="true" data-cookie-id-table="uno"  data-toolbar="#toolbar4"></table>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                        
+                        
+            
                 <div id="loading">
                     <img id="loading-image" src="img/loader.gif" alt="Carregant dades..." />
                 </div>
@@ -232,7 +246,8 @@ $selectTribunalbox = $databaseConnection->prepare('SELECT * FROM tbl_tribunal OR
                                   <option value="obert">Obert</option>
                                   <option value="tancat">Tancat</option>
                                 </select>
-                            <div class="form-group col-lg-8">
+                            </div>
+                            <div class="form-group col-lg-7">
                               <label for="ejemplo_email_1">Tribunal:</label>
                               <select class="form-control" name="tribunal">
                                     <?php
@@ -242,10 +257,41 @@ $selectTribunalbox = $databaseConnection->prepare('SELECT * FROM tbl_tribunal OR
                                     ?>
                               </select>
                             </div>
+                            <br>
+
+                            <div class="form-group col-lg-6">
+                              <label for="ejemplo_email_1">Nom primer alumne:</label>
+                              <input type="text" id="per_cp1" class="form-control col-lg-6" name="nombre1"
+                                     placeholder="Nom">
+                            </div>
+                            <div class="form-group col-lg-6">
+                              <label for="ejemplo_email_1">Cognom primer alumne:</label>
+                              <input type="text" id="per_cp1" class="form-control col-lg-6" name="apellido1"
+                                     placeholder="Cognom">
+                            </div>
+                             <div class="form-group col-lg-6">
+                              <label for="ejemplo_email_1">Nom segon alumne:</label>
+                              <input type="text" id="per_cp1" class="form-control col-lg-6" name="nombre2"
+                                     placeholder="Nom">
+                            </div>
+                            <div class="form-group col-lg-6">
+                              <label for="ejemplo_email_1">Cognom segon alumne:</label>
+                              <input type="text" id="per_cp1" class="form-control col-lg-6" name="apellido2"
+                                     placeholder="Cognom">
+                            </div> 
+                            <div class="form-group col-lg-6">
+                              <label for="ejemplo_email_1">Nom tercer alumne:</label>
+                              <input type="text" id="per_cp1" class="form-control col-lg-6" name="nombre3"
+                                     placeholder="Nom">
+                            </div>
+                            <div class="form-group col-lg-6">
+                              <label for="ejemplo_email_1">Cognom tercer alumne:</label>
+                              <input type="text" id="per_cp1" class="form-control col-lg-6" name="apellido3"
+                                     placeholder="Cognom">
                             </div>
 
                             <div class="form-group col-lg-12">
-                              <input type="submit" id="btnAfegirUsu" class="btn btn-primary col-lg-12 col-md-12 col-sm-12 col-xs-12" value="AFEGIR PROJECTE">
+                              <input type="submit" id="btnAfegirUsu" class="btn btn-primary col-lg-12 col-md-12 col-sm-12 col-xs-12" value="AFEGIR PROJECTE I ALUMNES">
                             </div>
                         </div>
                       </form>

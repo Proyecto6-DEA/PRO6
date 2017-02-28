@@ -2,7 +2,7 @@
 
 include_once "includes/conexion_bd.php";
 
-$selectAlumno = $databaseConnection->prepare('SELECT * FROM tbl_alumno');
+$selectAlumno = $databaseConnection->prepare('SELECT * FROM tbl_alumno, tbl_proyecto WHERE tbl_alumno.proy_id=tbl_proyecto.proy_id');
  				
  											
  											$selectAlumno->execute();	
