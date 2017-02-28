@@ -39,7 +39,7 @@
                 <div class="col-lg-12" class="logo">
                     <img class="img-responsive" src="proyecto/img/logo.png" alt="" width="600">
                     <div class="intro-text">
-                        <form action="">
+                        <form action="proyecto/entrar.proc.php" method="GET">
                         <div class="col-sm-12">
                             <input type="text" name="code" placeholder="Proyecto PIN" style=" font-size: 25px; text-align: center; border-color: black; cursor: text; color: black; width: 250px;"  maxlength="4">
                         </div>

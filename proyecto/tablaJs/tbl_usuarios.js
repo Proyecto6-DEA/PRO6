@@ -1,6 +1,6 @@
-$('#tblproyectos').bootstrapTable({
+$('#tblusuarios').bootstrapTable({
                         method: 'get',
-                        url: 'select_proyecto.proc.php',
+                        url: 'select_usuario.proc.php',
                         cache: false,
                         striped: true,
                         pagination: false,
@@ -12,22 +12,22 @@ $('#tblproyectos').bootstrapTable({
                         height: 450,
                         clickToSelect: false,
                         columns: [{
-                            field: 'tri_jurado',
-                            title: 'PROYECTO',
+                            field: 'usu_nombre',
+                            title: 'NOMBRE',
                             align: '',
                             valign: 'middle',
                             sortable: true,
                             visible: true,
                         },{
-                            field: 'tri_nombre',
-                            title: 'NOTA JURADO',
+                            field: 'usu_apellido',
+                            title: 'APELLIDO',
                             align: 'center',
                             valign: 'middle',
                             sortable: true,
                             visible: true,
                         },{
-                            field: 'username',
-                            title: 'NOTA PUBLICO',
+                            field: 'usu_usuario',
+                            title: 'NICKNAME',
                             align: '',
                             valign: 'middle',
                             sortable: true,

@@ -1,0 +1,14 @@
+slider:
+http://www.jquery-steps.com/Examples
+https://tympanus.net/codrops/2010/06/07/fancy-sliding-form-with-jquery/
+https://tympanus.net/Tutorials/FancySlidingForm/
+https://www.w3schools.com/jquerymobile/tryit.asp?filename=tryjqmob_forms_slider
+
+estrellas:
+https://www.martiniglesias.eu/demos/star_rating_sin_plugins/
+http://w3.unpocodetodo.info/css3/estrellas.php
+http://w3.unpocodetodo.info/css3/ejemplos/estrellas.php
+
+imágenes:
+https://www.w3.org/WAI/UA/TS/html401/cp0301/0301-CSS-DIV-BACKGROUND-IMAGE.html
+https://www.w3schools.com/css/css3_images.asp
