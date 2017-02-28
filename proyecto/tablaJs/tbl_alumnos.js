@@ -25,6 +25,13 @@ $('#tblalumnos').bootstrapTable({
                             valign: 'middle',
                             sortable: true,
                             visible: true,
+                        },{
+                            field: 'proy_nom',
+                            title: 'PROYECTO',
+                            align: 'center',
+                            valign: 'middle',
+                            sortable: true,
+                            visible: true,
                         }]
                     });
                    
