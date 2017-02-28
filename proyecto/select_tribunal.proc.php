@@ -2,7 +2,7 @@
 
 include_once "includes/conexion_bd.php";
 
-$selectUsuario = $databaseConnection->prepare('SELECT * FROM tbl_tribunal');
+$selectUsuario = $databaseConnection->prepare('SELECT * FROM tbl_tribunal  WHERE `tri_id` != 0');
  				
  											
  											$selectUsuario->execute();	
